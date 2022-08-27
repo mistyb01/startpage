@@ -1,12 +1,30 @@
+@import url('http://fonts.cdnfonts.com/css/sf-pixelate');
+
+:root {
+    --txt: #130e5e;
+    --bg: #f2e7b9;
+    --linewidth: 1px;
+  }
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    color:#130e5e;
+    color: var(--txt);
+    font-family: 'SF Pixelate', sans-serif;
 }
 
 body {
-    background-color: #f2e7b9;
+    background-color: var(--bg);
+    transition: color 2s ease-in, background-color 2s ease;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color:#ff5c8a;
+    
 }
 
 #wrapper {
@@ -22,14 +40,9 @@ body {
 
 #categoriesList li {
     flex-grow: 1;
-    border: 1px solid;
+    border: var(--linewidth) solid;
     padding: 5px 20px;
     text-align: center;
-}
-
-#categoriesList #general:hover {
-    background-color:#ff90b0;
-    transition: background-color 0.5s ease;
 }
 
 #categoriesList #code:hover {
@@ -37,8 +50,18 @@ body {
     transition: background-color 0.5s ease;
 }
 
+#categoriesList #design:hover {
+    background-color:#ff90b0;
+    transition: background-color 0.5s ease;
+}
+
 #categoriesList #art:hover {
     background-color:#6ec1db;
+    transition: background-color 0.5s ease;
+}
+
+#categoriesList #jp:hover {
+    background-color:#ba98ff;
     transition: background-color 0.5s ease;
 }
 
@@ -50,7 +73,8 @@ body {
 #links {
     font-size: 24px;
     min-height: 200px;
-    border: 1px solid;
+    border: var(--linewidth) solid;
+    border-top: 0px;
     padding: 10px 10px;
     text-align: center;
 }
@@ -60,8 +84,9 @@ ul {
 }
 
 input {
-    background-color: #f2e7b9;
-    border: 1px solid;
+    background-color: var(--bg);
+    transition: background-color 2s ease;
+    border: var(--linewidth) solid;
     width: 100%;
     padding: 5px 20px;
     margin-top: 10px;
@@ -73,4 +98,25 @@ input {
 
 #time {
     font-size: 108px;
+}
+
+#themes {
+    position:absolute;
+    top:0;
+}
+
+#nightBtn {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    border-radius: 30px;
+    color: var(--txt);
+    border: none;
+    background-color: var(--bg);
+    opacity: 0.5;
+}
+
+#nightBtn:hover {
+    opacity: 1;
+    transition: opacity 0.5s ease;
 }
