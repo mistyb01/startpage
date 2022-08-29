@@ -8,9 +8,18 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+    
     <div id="wrapper">
         <div id="datetime">
             <span id="time"></span>
+        </div>
+
+                <div id="searchbar">
+            <form action="https://www.ecosia.org/search?" method="get">
+                <div class="form-group">
+                    <input type="text" name="q" placeholder="search with ecosia"></input>
+                </div>
+            </form>
         </div>
 
         <div id="categories">
@@ -29,18 +38,29 @@
             </ul>
         </div>
 
-        <div id="searchbar">
-            <form action="https://www.ecosia.org/search?" method="get">
-                <div class="form-group">
-                    <input type="text" name="q" placeholder="search with ecosia"></input>
-                </div>
-            </form>
-        </div>
+
     </div>
 
     <div id="themes">
         <button id="nightBtn">&#9790;</button>
+        <button id="musicBtn">&#9835;</button>
+        
+
+        <div id="music" style="display: none; opacity: 0.5;">
+            <iframe width="280" height="158" src="https://www.youtube.com/embed/Q2_COwbll10" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+            <!-- 
+                study aa: T2EL26WmgoE
+                chill aa: pvgUwZvnwbI
+                mysterious pkmn: Q2_COwbll10
+                kirby cafe: ZyIo1GVSnAE
+                prof layton: h8YZMT94rR4
+            -->
+        </div>
+        
     </div>
+    <div id="bg"></div>
+
 
     <script src="index.js"></script>
 

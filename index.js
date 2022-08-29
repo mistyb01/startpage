@@ -14,11 +14,14 @@ const allLinks =
     {name: "pinterest", url: "https://www.pinterest.com/marinlily11/", category: "art"},
     {name: "adorkastock", url: "https://adorkastock.com", category: "art"},
     {name: "pixiv", url: "https://pixiv.com", category: "art"},
-    {name: "tegaki", url: "http://te2.tewi.us/newpost", category: "art"},
+    {name: "tegaki", url: "http://te2.tewi.us/", category: "art"},
 
     {name: "genki", url: "https://archive.org/details/Genki/Genki%20-%20Elementary%20Japanese%20I/page/n34/mode/2up", category: "jp"},
 
-    {name: "HUNTERxHUNTER", url: "https://mangadex.org/title/db692d58-4b13-4174-ae8c-30c515c0689c/hunter-x-hunter?order=asc", category: "fun"},
+    {name: "hxh manga", url: "https://mangadex.org/title/db692d58-4b13-4174-ae8c-30c515c0689c/hunter-x-hunter?order=asc", category: "fun"},
+    {name: "daily puzzles", url: "https://likewordle.com/", category: "fun"},
+    {name: "anilinks", url: "https://anilinks.neocities.org/", category: "fun"}
+
 ]
 
 generateLinks('code');
@@ -46,6 +49,7 @@ render a different set of links depending on the category selected.
 */
 const categories = document.querySelectorAll('#categoriesList li');
 categories.forEach(category => category.addEventListener('click', toggleLinks));
+categories.forEach(category => category.addEventListener('mouseover', toggleLinks));
 
 function toggleLinks(e) {
     // filter allLinks to just the selected category
@@ -68,24 +72,60 @@ function generateLinks(selectedCategory) {
 }
 
 /* night mode */
-var currentTime = new Date()
-let isNight = false;
-if (currentTime.getHours >= 17) {
-    isNight = true;
-}
+var currentTime = new Date();
+let isNight;
+currentTime.getHours >= 17 ? isNight = true : isNight = false;
+
+
 const nightBtn = document.getElementById('nightBtn');
 nightBtn.addEventListener('click', handleNightMode);
+handleNightMode();
+
 
 function handleNightMode() {
+
     if (isNight === false) {
         nightBtn.innerText = "☼";
-        document.documentElement.style.setProperty(`--txt`, '#C996CC');
-        document.documentElement.style.setProperty(`--bg`, '#1C0C5B');
+        document.documentElement.style.setProperty(`--txt`, '#cc96a3');
+        document.documentElement.style.setProperty(`--bg`, '#000000');
+
+        document.documentElement.style.setProperty(`--imgUrl`, 'url(./img/png7-edit2.png)');
+        document.documentElement.style.setProperty(`--imgSize`, '600px');
+        document.documentElement.style.setProperty(`--imgOpacity`, '0.5');
+        document.documentElement.style.setProperty(`--imgPos`, 'bottom 0px right 10px');
     } else if (isNight === true) {
         nightBtn.innerText = "☾";
         document.documentElement.style.setProperty(`--txt`, '#130e5e');
         document.documentElement.style.setProperty(`--bg`, '#f2e7b9');
+
+        document.documentElement.style.setProperty(`--imgUrl`, 'url(./img/png12.png)');
+        document.documentElement.style.setProperty(`--imgSize`, '600px');
+        document.documentElement.style.setProperty(`--imgOpacity`, '0.3');
+        document.documentElement.style.setProperty(`--imgPos`, 'bottom 0px right 10px');
     }
     isNight = !isNight;
 }
 
+/* music button */
+const musicBtn = document.getElementById('musicBtn');
+musicBtn.addEventListener('click', toggleMusic);
+
+let musicVisible = false;
+function toggleMusic() {
+    musicVisible = !musicVisible;
+    const musicDiv = document.getElementById('music');
+    musicVisible ? musicDiv.style.display = 'block': musicDiv.style.display = 'none';
+}
+
+/* js30: konami code! */
+const pressed = [];
+const secretCode = 'ArrowUp ArrowUp ArrowDown ArrowDown ArrowLeft ArrowRight ArrowLeft ArrowRight b a';
+
+window.addEventListener('keyup', (e) => {
+    console.log(e.key);
+    pressed.push(e.key);
+    pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length);
+    if (pressed.join(' ').includes(secretCode)) {
+        
+    }
+})

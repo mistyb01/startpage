@@ -4,7 +4,12 @@
     --txt: #130e5e;
     --bg: #f2e7b9;
     --linewidth: 1px;
+    --imgUrl: url(./img/png12.png);
+    --imgPos: bottom 0px right 10px;
+    --imgSize: 600px;
+    --imgOpacity: 0.3;
   }
+
 * {
     margin: 0;
     padding: 0;
@@ -15,7 +20,22 @@
 
 body {
     background-color: var(--bg);
-    transition: color 2s ease-in, background-color 2s ease;
+    transition: color 2s ease-in, background-color 2s ease-in;
+}
+
+#bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: var(--imgUrl);
+    background-position: var(--imgPos);
+    background-repeat: no-repeat;
+    background-size: var(--imgSize); 
+    opacity: var(--imgOpacity);
+    z-index: -1;
+    transition: opacity 1s ease-in;
 }
 
 a {
@@ -28,7 +48,7 @@ a:hover {
 }
 
 #wrapper {
-    width: 50%;
+    width: 33%;
     margin: auto;
 }
 
@@ -46,27 +66,27 @@ a:hover {
 }
 
 #categoriesList #code:hover {
-    background-color:#aae491;
+    background-color:rgba(170, 228, 145, 0.3);
     transition: background-color 0.5s ease;
 }
 
 #categoriesList #design:hover {
-    background-color:#ff90b0;
+    background-color:rgba(255, 144, 176, 0.3);
     transition: background-color 0.5s ease;
 }
 
 #categoriesList #art:hover {
-    background-color:#6ec1db;
+    background-color:rgba(110, 194, 219, 0.3);
     transition: background-color 0.5s ease;
 }
 
 #categoriesList #jp:hover {
-    background-color:#ba98ff;
+    background-color:rgba(186, 152, 255, 0.3);
     transition: background-color 0.5s ease;
 }
 
 #categoriesList #fun:hover {
-    background-color:#eef077;
+    background-color:rgba(157, 255, 217, 0.3);
     transition: background-color 0.5s ease;
 }
 
@@ -74,7 +94,6 @@ a:hover {
     font-size: 24px;
     min-height: 200px;
     border: var(--linewidth) solid;
-    border-top: 0px;
     padding: 10px 10px;
     text-align: center;
 }
@@ -84,8 +103,7 @@ ul {
 }
 
 input {
-    background-color: var(--bg);
-    transition: background-color 2s ease;
+    background: transparent;
     border: var(--linewidth) solid;
     width: 100%;
     padding: 5px 20px;
@@ -105,7 +123,7 @@ input {
     top:0;
 }
 
-#nightBtn {
+button {
     width: 50px;
     height: 50px;
     font-size: 24px;
@@ -116,7 +134,7 @@ input {
     opacity: 0.5;
 }
 
-#nightBtn:hover {
+button:hover {
     opacity: 1;
     transition: opacity 0.5s ease;
 }
