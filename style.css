@@ -164,10 +164,16 @@ button:hover {
     flex-basis: 1;
     height: 150px;
     padding: 5px;
-    background-color:rgba(255, 255, 255, 0.51);
+    background: transparent;
+    border: var(--linewidth) solid;
 }
 
 #todo {
     flex-basis: 1;
     height: 100px;
+}
+
+#todo ul {
+    padding: 5px;
+    border: var(--linewidth) solid;
 }
