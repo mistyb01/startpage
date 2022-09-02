@@ -15,6 +15,7 @@ const allLinks =
     {name: "adorkastock", url: "https://adorkastock.com", category: "art"},
     {name: "pixiv", url: "https://pixiv.com", category: "art"},
     {name: "tegaki", url: "http://te2.tewi.us/", category: "art"},
+    {name: "lospec", url: "http://lospec.com", category: "art"},
 
     {name: "genki", url: "https://archive.org/details/Genki/Genki%20-%20Elementary%20Japanese%20I/page/n34/mode/2up", category: "jp"},
 
@@ -40,6 +41,11 @@ function updateTime(){
     }
     var t_str = hours + ":" + minutes + " ";
     document.getElementById('time').innerHTML = t_str;
+
+    var day = currentTime.getDay();
+    var month = currentTime.toLocaleString('default', { month: 'long' });
+    var d_str = month + ' ' + day;
+    document.getElementById('date').innerHTML = d_str;
 }
 setInterval(updateTime, 1000);
 
@@ -73,8 +79,8 @@ function generateLinks(selectedCategory) {
 
 /* night mode */
 var currentTime = new Date();
-let isNight;
-currentTime.getHours >= 17 ? isNight = true : isNight = false;
+let isNight = true;
+//currentTime.getHours >= 17 ? isNight = true : isNight = false;
 
 
 const nightBtn = document.getElementById('nightBtn');
@@ -86,22 +92,20 @@ function handleNightMode() {
 
     if (isNight === false) {
         nightBtn.innerText = "☼";
-        document.documentElement.style.setProperty(`--txt`, '#cc96a3');
+        document.documentElement.style.setProperty(`--txt`, '#6575f0');
         document.documentElement.style.setProperty(`--bg`, '#000000');
 
         document.documentElement.style.setProperty(`--imgUrl`, 'url(./img/png7-edit2.png)');
         document.documentElement.style.setProperty(`--imgSize`, '600px');
         document.documentElement.style.setProperty(`--imgOpacity`, '0.5');
-        document.documentElement.style.setProperty(`--imgPos`, 'bottom 0px right 10px');
     } else if (isNight === true) {
         nightBtn.innerText = "☾";
-        document.documentElement.style.setProperty(`--txt`, '#130e5e');
+        document.documentElement.style.setProperty(`--txt`, '#d65476');
         document.documentElement.style.setProperty(`--bg`, '#f2e7b9');
 
         document.documentElement.style.setProperty(`--imgUrl`, 'url(./img/png12.png)');
         document.documentElement.style.setProperty(`--imgSize`, '600px');
         document.documentElement.style.setProperty(`--imgOpacity`, '0.3');
-        document.documentElement.style.setProperty(`--imgPos`, 'bottom 0px right 10px');
     }
     isNight = !isNight;
 }
