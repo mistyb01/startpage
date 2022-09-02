@@ -1,3 +1,20 @@
+
+/* notepad functionality */
+const notes = localStorage.getItem('notes') || '';
+const textarea = document.getElementById('notesInput');
+textarea.addEventListener('change', handleNote);
+
+function handleNote() {
+    console.log(textarea.value);
+    localStorage.setItem('notes', textarea.value);
+}
+
+function restoreNote() {
+    textarea.innerHTML = notes;
+}
+
+restoreNote();
+
 const allLinks = 
 [
     {name: "notion", url: "https://www.notion.so/Web-Dev-09fe194545d0443994a9f3f409c9e2c4", category: "code"},
@@ -79,7 +96,7 @@ function generateLinks(selectedCategory) {
 
 /* night mode */
 var currentTime = new Date();
-let isNight = true;
+let isNight = false;
 //currentTime.getHours >= 17 ? isNight = true : isNight = false;
 
 
@@ -133,3 +150,4 @@ window.addEventListener('keyup', (e) => {
         
     }
 })
+
