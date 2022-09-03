@@ -10,49 +10,58 @@
 <body>
     
     <div id="wrapper">
-        <div id="datetime">
-            <p id="date"></p>
-            <p id="time"></p>
-        </div>
-
-                <div id="searchbar">
-            <form action="https://www.ecosia.org/search?" method="get">
-                <div class="form-group">
-                    <input type="text" name="q" placeholder="search with ecosia"></input>
-                </div>
-            </form>
-        </div>
-
-        <div id="categories">
-            <ul id="categoriesList">
-                <li id="code">code</li>
-                <li id="design">design</li>
-                <li id="art">art</li>
-                <li id="jp">japan</li>
-                <li id="fun">fun</li>
-            </ul>
-        </div>
-
-        <div id="links">
-            <ul id="linklist"></ul>
-        </div>
-
         <div id="widgets">
+            <div id="todo">
+                <h3>today's priorities</h3>
+                <ul id="todoList">
+
+                </ul>
+                <form class="add-todos">
+                    <input type="text" name="todo" placeholder="enter a task"/>
+                    <input type="submit" value="+">
+                  </form>
+                  <button id="clear">clear</button>
+            </div>
+
             <div id="notepad">
                 <h3>notes</h3>
                 <textarea name="notes" id="notesInput"></textarea>
             </div>
-            <div id="todo">
-                <h3>today's priorities</h3>
-                <ul>
-                    <li>todo 1</li>
-                    <li>todo 2</li>
-                    <li>todo 3</li>
+
+        </div>
+
+        <div id="column-wrapper">
+            <div id="datetime">
+                <p id="date"></p>
+                <p id="time"></p>
+            </div>
+
+            <div id="searchbar">
+                <form action="https://www.ecosia.org/search?" method="get">
+                    <div class="form-group">
+                        <input type="text" name="q" placeholder="search with ecosia"></input>
+                    </div>
+                </form>
+            </div>
+
+            <div id="categories">
+                <ul id="categoriesList">
+                    <li id="code">code</li>
+                    <li id="design">design</li>
+                    <li id="art">art</li>
+                    <li id="jp">japan</li>
+                    <li id="fun">fun</li>
                 </ul>
+            </div>
+
+            <div id="links">
+                <ul id="linklist"></ul>
             </div>
         </div>
 
     </div>
+
+
 
     <div id="themes">
         <button id="nightBtn">&#9790;</button>

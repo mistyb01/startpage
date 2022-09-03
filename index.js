@@ -1,5 +1,5 @@
 
-/* notepad functionality */
+//////////// NOTEPAD FUNCTIONALITY
 const notes = localStorage.getItem('notes') || '';
 const textarea = document.getElementById('notesInput');
 textarea.addEventListener('change', handleNote);
@@ -12,9 +12,64 @@ function handleNote() {
 function restoreNote() {
     textarea.innerHTML = notes;
 }
-
 restoreNote();
 
+
+//////////// TODO FUNCTIONALITY
+const todos = JSON.parse(localStorage.getItem('todos')) || [];
+const todoList = document.getElementById('todoList');
+populateList(todos, todoList);
+
+function handleTodo(e) {
+    e.preventDefault(); 
+    const text = (this.querySelector('[name=todo]')).value;
+    const item = {
+      text,
+      done: false
+    };
+    todos.push(item);
+    populateList(todos, todoList);
+    localStorage.setItem('todos', JSON.stringify(todos)); // have to convert objects to strings to store in localstorage
+    this.reset(); // resets the input form
+}
+
+function populateList(todos = [], todoList) {
+    todoList.innerHTML = todos.map((todo, i) => {
+        return `
+        <li>
+            <input type="checkbox" data-index=${i} id="item${i}" ${todo.done ? 'checked' : ''} style="word-wrap:break-all" />
+            <label for="item${i}">${todo.text}</label>
+        </li>
+        `;
+    }).join('');
+}
+
+function deleteAll() {
+    todos.splice(0, todos.length);
+    todoList.innerHTML = '';
+  }
+
+function toggleDone(e) {
+    if (!e.target.matches('input')) return; // we should only pay attn to the checkboxes! (which are type input)
+    const index = e.target.dataset.index;
+    todos[index].done = !todos[index].done;
+    localStorage.setItem('todos', JSON.stringify(todos));
+    populateList(todos, todoList);
+}
+
+const addTodos = document.querySelector('.add-todos');
+addTodos.addEventListener('submit', handleTodo);
+
+todoList.addEventListener('click', toggleDone); 
+
+const clearBtn = document.getElementById('clear');
+clearBtn.addEventListener('click', deleteAll);
+// event delegation- we assign an event listener to the whole todolist, 
+// rather than individual checkboxes (which may get created later, and therefore not have the necessary event listener attached!)
+// toggleDone only takes action when a checkbox is clicked!
+
+
+//////////// THE LINKS
 const allLinks = 
 [
     {name: "notion", url: "https://www.notion.so/Web-Dev-09fe194545d0443994a9f3f409c9e2c4", category: "code"},
@@ -138,7 +193,7 @@ function toggleMusic() {
     musicVisible ? musicDiv.style.display = 'block': musicDiv.style.display = 'none';
 }
 
-/* js30: konami code! */
+/* js30: konami code! 
 const pressed = [];
 const secretCode = 'ArrowUp ArrowUp ArrowDown ArrowDown ArrowLeft ArrowRight ArrowLeft ArrowRight b a';
 
@@ -150,4 +205,4 @@ window.addEventListener('keyup', (e) => {
         
     }
 })
-
+*/
