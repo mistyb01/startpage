@@ -74,7 +74,8 @@ const allLinks =
 [
     {name: "notion", url: "https://www.notion.so/Web-Dev-09fe194545d0443994a9f3f409c9e2c4", category: "code"},
     {name: "github", url: "https://github.com", category: "code"},
-    {name: "js30", url: "https://javascript30.com", category: "code"},
+    {name: "javascript 30", url: "https://javascript30.com", category: "code"},
+    {name: "FE interview handbook", url: "https://www.frontendinterviewhandbook.com/introduction/", category: "code"},
 
     {name: "figma", url: "https://figma.com", category: "design"},
     {name: "design principles", url: "https://principles.design", category: "design"},
@@ -191,6 +192,19 @@ function toggleMusic() {
     musicVisible = !musicVisible;
     const musicDiv = document.getElementById('music');
     musicVisible ? musicDiv.style.display = 'block': musicDiv.style.display = 'none';
+}
+
+// playlist options
+const playlists = document.querySelector('#playlists');
+const playlistOptions = playlists.getElementsByTagName('li');
+Array.from(playlistOptions).forEach(link => link.addEventListener('click', selectPlaylist));
+
+function selectPlaylist(e) {
+    let playlistId = e.target.id;
+    console.log(playlistId);
+    let youtubeVid = document.querySelector('#youtubeVid');
+    console.log('https://www.youtube.com/embed/'+playlistId);
+    youtubeVid.setAttribute('src', 'https://www.youtube.com/embed/'+playlistId);
 }
 
 /* js30: konami code! 
