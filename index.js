@@ -74,8 +74,8 @@ const allLinks =
 [
     {name: "notion", url: "https://www.notion.so/Web-Dev-09fe194545d0443994a9f3f409c9e2c4", category: "code"},
     {name: "github", url: "https://github.com", category: "code"},
-    {name: "javascript 30", url: "https://javascript30.com", category: "code"},
-    {name: "FE interview handbook", url: "https://www.frontendinterviewhandbook.com/introduction/", category: "code"},
+    {name: "mdn web docs", url: "https://developer.mozilla.org/en-US/docs/Learn/JavaScript", category: "code"},
+    {name: "freecodecamp", url: "https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/#basic-javascript", category: "code"},
 
     {name: "figma", url: "https://figma.com", category: "design"},
     {name: "design principles", url: "https://principles.design", category: "design"},
@@ -84,17 +84,15 @@ const allLinks =
     
     {name: "notion", url: "https://www.notion.so/Art-d4180dcd7ba54c498ee4dc7699974d03", category: "art"},
     {name: "gumroad", url: "https://gumroad.com/library", category: "art"},
-    {name: "pinterest", url: "https://www.pinterest.com/marinlily11/", category: "art"},
+    {name: "pinterest", url: "https://www.pinterest.com/", category: "art"},
     {name: "adorkastock", url: "https://adorkastock.com", category: "art"},
     {name: "pixiv", url: "https://pixiv.com", category: "art"},
-    {name: "tegaki", url: "http://te2.tewi.us/", category: "art"},
     {name: "lospec", url: "http://lospec.com", category: "art"},
 
-    {name: "genki", url: "https://archive.org/details/Genki/Genki%20-%20Elementary%20Japanese%20I/page/n34/mode/2up", category: "jp"},
-
-    {name: "hxh manga", url: "https://mangadex.org/title/db692d58-4b13-4174-ae8c-30c515c0689c/hunter-x-hunter?order=asc", category: "fun"},
+    {name: "youtube", url: "https://youtube.com/", category: "fun"},
+    {name: "shounen jump", url: "https://www.viz.com/shonenjump", category: "fun"},
+    {name: "sakuga", url: "https://www.sakugabooru.com/", category: "fun"},
     {name: "daily puzzles", url: "https://likewordle.com/", category: "fun"},
-    {name: "anilinks", url: "https://anilinks.neocities.org/", category: "fun"}
 
 ]
 
@@ -114,11 +112,6 @@ function updateTime(){
     }
     var t_str = hours + ":" + minutes + " ";
     document.getElementById('time').innerHTML = t_str;
-
-    var day = currentTime.getDay();
-    var month = currentTime.toLocaleString('default', { month: 'long' });
-    var d_str = month + ' ' + day;
-    document.getElementById('date').innerHTML = d_str;
 }
 setInterval(updateTime, 1000);
 
